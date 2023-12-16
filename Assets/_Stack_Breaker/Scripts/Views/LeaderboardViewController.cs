@@ -5,16 +5,17 @@ using UnityEngine.UI;
 using CBGames;
 using System.Text.RegularExpressions;
 using System.Linq;
+using TMPro;
 
 public class LeaderboardViewController : MonoBehaviour
 {
     [SerializeField] private GameObject noInternetConectionView = null;
     [SerializeField] private GameObject setUsernameView = null;
-    [SerializeField] private InputField usernameInputField = null;
-    [SerializeField] private Text errorTxt = null;
+    [SerializeField] private TMP_InputField usernameInputField = null;
+    [SerializeField] private TextMeshProUGUI errorTxt = null;
     [SerializeField] private GameObject leaderboardView = null;
-    [SerializeField] private Text localUsernameTxt = null;
-    [SerializeField] private Text localLevelTxt = null;
+    [SerializeField] private TextMeshProUGUI localUsernameTxt = null;
+    [SerializeField] private TextMeshProUGUI localLevelTxt = null;
     [SerializeField] private RectTransform contentTrans = null;
     [SerializeField] private LeaderboardItemController leaderboardItemControlPrefab = null;
 

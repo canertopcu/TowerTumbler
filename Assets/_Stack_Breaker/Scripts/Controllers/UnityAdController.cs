@@ -16,8 +16,8 @@ namespace CBGames
 
         private void Start()
         {
-            Advertisement.Initialize(unityAdID, enableTestMode);
-           // Advertisement.AddListener(this);
+            //Advertisement.Initialize(unityAdID, enableTestMode);
+            //Advertisement.AddListener(this);
         }
 
 
@@ -36,7 +36,7 @@ namespace CBGames
         /// <param name="destroyBanner"></param>
         public void HideBanner(bool destroyBanner)
         {
-            Advertisement.Banner.Hide(destroyBanner);
+           // Advertisement.Banner.Hide(destroyBanner);
         }
 
 
@@ -55,8 +55,8 @@ namespace CBGames
                 }
             }
 
-            Advertisement.Banner.SetPosition(bannerPosition);
-            Advertisement.Banner.Show(bannerAdPlacementID);
+            //Advertisement.Banner.SetPosition(bannerPosition);
+            //Advertisement.Banner.Show(bannerAdPlacementID);
         }
 
 

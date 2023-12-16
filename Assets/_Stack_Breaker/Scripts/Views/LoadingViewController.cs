@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class LoadingViewController : MonoBehaviour {
 
-    [SerializeField] private Text loadingTxt = null;
-    [SerializeField] private Image loadingSlider = null;
+    [SerializeField] private TextMeshProUGUI loadingTxt = null;
+    [SerializeField] private Slider loadingSlider = null;
 
     public void OnShow()
     {
-        loadingSlider.fillAmount = 0;
+        loadingSlider.value = 0;
         StartCoroutine(CRFillLoadingSlider());
     }
 
@@ -22,7 +23,7 @@ public class LoadingViewController : MonoBehaviour {
         {
             t += Time.deltaTime;
             float factor = t / fillingTime;
-            loadingSlider.fillAmount = Mathf.Lerp(0, 0.99f, factor);
+            loadingSlider.value = Mathf.Lerp(0, 0.99f, factor);
             yield return null;
         }
     }

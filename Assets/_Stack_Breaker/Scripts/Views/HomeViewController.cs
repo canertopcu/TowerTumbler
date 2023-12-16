@@ -1,17 +1,16 @@
 ﻿using CBGames;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 
-
-public class HomeViewController : MonoBehaviour {
+public class HomeViewController : MonoBehaviour
+{
 
     [SerializeField] private RectTransform gameNameTrans = null;
-    [SerializeField] private RectTransform currentLevelTxtTrans = null;
-    [SerializeField] private RectTransform tapToPlayTextTrans = null;
-    [SerializeField] private RectTransform settingButtonViewTrans = null;
-    [SerializeField] private RectTransform servicesButtonViewTrans = null;
+    //[SerializeField] private RectTransform currentLevelTxtTrans = null;
+    // [SerializeField] private RectTransform tapToPlayTextTrans = null;
+    //[SerializeField] private RectTransform settingButtonViewTrans = null;
+    //[SerializeField] private RectTransform servicesButtonViewTrans = null;
     [SerializeField] private RectTransform soundButtonsTrans = null;
     [SerializeField] private RectTransform musicButtonsTrans = null;
     [SerializeField] private RectTransform rateAppButtonViewTrans = null;
@@ -22,8 +21,8 @@ public class HomeViewController : MonoBehaviour {
     [SerializeField] private GameObject soundOffButtonView = null;
     [SerializeField] private GameObject musicOnButtonView = null;
     [SerializeField] private GameObject musicOffButtonView = null;
-    [SerializeField] private Text tapToPlayText = null;
-    [SerializeField] private Text currentLevelTxt = null;
+    [SerializeField] private TextMeshProUGUI tapToPlayText = null;
+    [SerializeField] private TextMeshProUGUI currentLevelTxt = null;
     [SerializeField] private LeaderboardViewController leaderboardViewController = null;
 
     private int settingButtonTurn = 1;
@@ -32,10 +31,10 @@ public class HomeViewController : MonoBehaviour {
     {
 
         ViewManager.Instance.MoveRect(gameNameTrans, gameNameTrans.anchoredPosition, new Vector2(0, gameNameTrans.anchoredPosition.y), 0.5f);
-        ViewManager.Instance.MoveRect(currentLevelTxtTrans, currentLevelTxtTrans.anchoredPosition, new Vector2(0, currentLevelTxtTrans.anchoredPosition.y), 0.5f);
-        ViewManager.Instance.ScaleRect(tapToPlayTextTrans, Vector2.zero, Vector2.one, 0.5f);
-        ViewManager.Instance.MoveRect(settingButtonViewTrans, settingButtonViewTrans.anchoredPosition, new Vector2(0, settingButtonViewTrans.anchoredPosition.y), 0.5f);
-        ViewManager.Instance.MoveRect(servicesButtonViewTrans, servicesButtonViewTrans.anchoredPosition, new Vector2(0, servicesButtonViewTrans.anchoredPosition.y), 0.5f);
+        // ViewManager.Instance.MoveRect(currentLevelTxtTrans, currentLevelTxtTrans.anchoredPosition, new Vector2(0, currentLevelTxtTrans.anchoredPosition.y), 0.5f);
+        // ViewManager.Instance.ScaleRect(tapToPlayTextTrans, Vector2.zero, Vector2.one, 0.5f);
+        // ViewManager.Instance.MoveRect(settingButtonViewTrans, settingButtonViewTrans.anchoredPosition, new Vector2(0, settingButtonViewTrans.anchoredPosition.y), 0.5f);
+        // ViewManager.Instance.MoveRect(servicesButtonViewTrans, servicesButtonViewTrans.anchoredPosition, new Vector2(0, servicesButtonViewTrans.anchoredPosition.y), 0.5f);
 
 
         settingButtonTurn = 1;
@@ -68,16 +67,16 @@ public class HomeViewController : MonoBehaviour {
             musicOnButtonView.gameObject.SetActive(true);
         }
 
-        StartCoroutine(CRFadingTapToPlayText());
+        //StartCoroutine(CRFadingTapToPlayText());
     }
 
     private void OnDisable()
     {
         gameNameTrans.anchoredPosition = new Vector2(-700, gameNameTrans.anchoredPosition.y);
-        currentLevelTxtTrans.anchoredPosition = new Vector2(-600, currentLevelTxtTrans.anchoredPosition.y);
-        tapToPlayTextTrans.localScale = Vector2.zero;
-        settingButtonViewTrans.anchoredPosition = new Vector2(-150, settingButtonViewTrans.anchoredPosition.y);
-        servicesButtonViewTrans.anchoredPosition = new Vector2(150, servicesButtonViewTrans.anchoredPosition.y);
+        //currentLevelTxtTrans.anchoredPosition = new Vector2(-600, currentLevelTxtTrans.anchoredPosition.y);
+        //tapToPlayTextTrans.localScale = Vector2.zero;
+        // settingButtonViewTrans.anchoredPosition = new Vector2(-150, settingButtonViewTrans.anchoredPosition.y);
+        //  servicesButtonViewTrans.anchoredPosition = new Vector2(150, servicesButtonViewTrans.anchoredPosition.y);
         soundButtonsTrans.anchoredPosition = new Vector2(-150, soundButtonsTrans.anchoredPosition.y);
         musicButtonsTrans.anchoredPosition = new Vector2(-150, musicButtonsTrans.anchoredPosition.y);
         rateAppButtonViewTrans.anchoredPosition = new Vector2(-150, rateAppButtonViewTrans.anchoredPosition.y);

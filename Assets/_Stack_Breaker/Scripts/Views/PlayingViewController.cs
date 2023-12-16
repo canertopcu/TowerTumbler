@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class PlayingViewController : MonoBehaviour {
 
     [SerializeField] private RectTransform topBarTrans = null;
-    [SerializeField] private Text currentLevelTxt = null;
-    [SerializeField] private Text nextLevelTxt = null;
-    [SerializeField] private Image levelSliderImg = null;
+    [SerializeField] private TextMeshProUGUI currentLevelTxt = null;
+    [SerializeField] private TextMeshProUGUI nextLevelTxt = null;
+    [SerializeField] private Slider levelSliderImg = null;
     [SerializeField] private GameObject immortalModeTimeCountView = null;
     [SerializeField] private Image immortalModeTimeSlider = null;
 
@@ -25,7 +26,7 @@ public class PlayingViewController : MonoBehaviour {
 
         if (!IngameManager.Instance.IsRevived)
         {
-            levelSliderImg.fillAmount = 0;
+            levelSliderImg.value = 0;
         }
     }
 
@@ -36,7 +37,7 @@ public class PlayingViewController : MonoBehaviour {
 
     public void UpdateLevelProgress(float levelProgress)
     {
-        levelSliderImg.fillAmount = levelProgress;
+        levelSliderImg.value = levelProgress;
     }
 
 

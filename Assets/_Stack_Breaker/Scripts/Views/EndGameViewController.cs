@@ -1,27 +1,26 @@
 ﻿using CBGames;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class EndGameViewController : MonoBehaviour {
+public class EndGameViewController : MonoBehaviour
+{
 
-    [SerializeField] private Text levelResultTxt = null;
-    [SerializeField] private Text nextLevelTxt = null;
-    [SerializeField] private RectTransform tapToNextLevelTextTrans = null;
-    [SerializeField] private RectTransform tapToReplayTextTrans = null;
-    [SerializeField] private RectTransform homeButtonViewTrans = null;
-    [SerializeField] private RectTransform nativeShareButtonViewTrans = null;
+    [SerializeField] private TextMeshProUGUI levelResultTxt = null;
+    [SerializeField] private TextMeshProUGUI nextLevelTxt = null;
+    [SerializeField] private GameObject NextButton = null;
+    [SerializeField] private GameObject ReplyButton = null;
+    //[SerializeField] private RectTransform homeButtonViewTrans = null;
+    //[SerializeField] private RectTransform nativeShareButtonViewTrans = null;
 
     public void OnShow()
     {
         if (IngameManager.Instance.IngameState == IngameState.Ingame_CompletedLevel)
         {
-            levelResultTxt.text = "LEVEL COMPLETED !";
-            levelResultTxt.color = Color.green;
+            levelResultTxt.text = "LEVEL COMPLETED !"; 
 
-            tapToReplayTextTrans.gameObject.SetActive(false);
-            tapToNextLevelTextTrans.gameObject.SetActive(true);
-            ViewManager.Instance.ScaleRect(tapToNextLevelTextTrans, Vector2.zero, Vector2.one, 0.75f);
+            ReplyButton.SetActive(false);
+            NextButton.SetActive(true); 
 
         }
         else if (IngameManager.Instance.IngameState == IngameState.Ingame_GameOver)
@@ -29,17 +28,15 @@ public class EndGameViewController : MonoBehaviour {
             levelResultTxt.text = "LEVEL FAILED !";
             levelResultTxt.color = Color.red;
 
-            tapToReplayTextTrans.gameObject.SetActive(true);
-            tapToNextLevelTextTrans.gameObject.SetActive(false);
-            ViewManager.Instance.ScaleRect(tapToReplayTextTrans, Vector2.zero, Vector2.one, 0.75f);
+            ReplyButton.SetActive(true);
+            NextButton.SetActive(false);
         }
 
         RectTransform levelResultTxtTrans = levelResultTxt.rectTransform;
         ViewManager.Instance.MoveRect(levelResultTxtTrans, levelResultTxtTrans.anchoredPosition, new Vector2(0, levelResultTxtTrans.anchoredPosition.y), 0.5f);
-        RectTransform nextLevelTxtTrans = nextLevelTxt.rectTransform;
-        ViewManager.Instance.MoveRect(nextLevelTxtTrans, nextLevelTxtTrans.anchoredPosition, new Vector2(0, nextLevelTxtTrans.anchoredPosition.y), 0.5f);
-        ViewManager.Instance.MoveRect(homeButtonViewTrans, homeButtonViewTrans.anchoredPosition, new Vector2(30, homeButtonViewTrans.anchoredPosition.y), 0.5f);
-        ViewManager.Instance.MoveRect(nativeShareButtonViewTrans, nativeShareButtonViewTrans.anchoredPosition, new Vector2(-30, nativeShareButtonViewTrans.anchoredPosition.y), 0.5f);
+        // RectTransform nextLevelTxtTrans = nextLevelTxt.rectTransform;
+        // ViewManager.Instance.MoveRect(homeButtonViewTrans, homeButtonViewTrans.anchoredPosition, new Vector2(30, homeButtonViewTrans.anchoredPosition.y), 0.5f);
+        // ViewManager.Instance.MoveRect(nativeShareButtonViewTrans, nativeShareButtonViewTrans.anchoredPosition, new Vector2(-30, nativeShareButtonViewTrans.anchoredPosition.y), 0.5f);
         nextLevelTxt.text = "NEXT LEVEL: " + PlayerPrefs.GetInt(PlayerPrefsKey.SAVED_LEVEL_PPK).ToString();
     }
 
@@ -47,11 +44,10 @@ public class EndGameViewController : MonoBehaviour {
     private void OnDisable()
     {
         levelResultTxt.rectTransform.anchoredPosition = new Vector2(-700, levelResultTxt.rectTransform.anchoredPosition.y);
-        nextLevelTxt.rectTransform.anchoredPosition = new Vector2(700, nextLevelTxt.rectTransform.anchoredPosition.y);
-        tapToNextLevelTextTrans.localScale = Vector2.zero;
-        tapToReplayTextTrans.localScale = Vector2.zero;
-        homeButtonViewTrans.anchoredPosition = new Vector2(-150, homeButtonViewTrans.anchoredPosition.y);
-        nativeShareButtonViewTrans.anchoredPosition = new Vector2(150, nativeShareButtonViewTrans.anchoredPosition.y);
+        //nextLevelTxt.rectTransform.anchoredPosition = new Vector2(700, nextLevelTxt.rectTransform.anchoredPosition.y);
+       
+        // homeButtonViewTrans.anchoredPosition = new Vector2(-150, homeButtonViewTrans.anchoredPosition.y);
+        // nativeShareButtonViewTrans.anchoredPosition = new Vector2(150, nativeShareButtonViewTrans.anchoredPosition.y);
     }
 
     private void Update()

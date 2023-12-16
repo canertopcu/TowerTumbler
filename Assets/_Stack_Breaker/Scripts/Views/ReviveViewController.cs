@@ -1,11 +1,12 @@
 ﻿using CBGames;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ReviveViewController : MonoBehaviour {
 
-    [SerializeField] private Text reviveCountTxt = null;
+    [SerializeField] private TextMeshProUGUI reviveCountTxt = null;
     [SerializeField] private RectTransform reviveButtonTrans = null;
     [SerializeField] private RectTransform closeReviveViewButtonTrans = null;
 

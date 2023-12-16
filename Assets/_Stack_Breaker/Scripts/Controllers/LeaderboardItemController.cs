@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using CBGames;
+using TMPro;
 
 public class LeaderboardItemController : MonoBehaviour
 {
-    [SerializeField] private Text usernameTxt = null;
-    [SerializeField] private Text levelTxt = null;
+    [SerializeField] private TextMeshProUGUI usernameTxt = null;
+    [SerializeField] private TextMeshProUGUI levelTxt = null;
 
 
     public void OnSetup(int indexRank, PlayerLeaderboardData data)
